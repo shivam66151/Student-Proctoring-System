@@ -2,8 +2,6 @@
   
   Project created using Brian Lough's Universal Telegram Bot Library: https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot
 
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
 */
 
 #include <WiFi.h>
