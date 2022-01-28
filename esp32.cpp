@@ -1,6 +1,4 @@
 /*
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/esp32-cam-shield-pcb-telegram/
   
   Project created using Brian Lough's Universal Telegram Bot Library: https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot
 
