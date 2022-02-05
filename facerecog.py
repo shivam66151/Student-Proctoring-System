@@ -9,3 +9,8 @@ cv.imshow('',img)
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 cv.imshow('Gray People',gray)
+
+haar_
+
+cv.destroyAllWindows()
+cv.waitKey(60)
