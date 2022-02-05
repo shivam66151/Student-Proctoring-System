@@ -4,8 +4,8 @@ import numpy as np
 
 # face detection
 
-img = cv.imread('')
-cv.imshow('',img)
+img = cv.imread('lady.jpg')
+cv.imshow('Group of 5 people',img)
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 cv.imshow('Gray People',gray)
