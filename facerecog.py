@@ -10,7 +10,9 @@ cv.imshow('',img)
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 cv.imshow('Gray People',gray)
 
-haar_
+#cascadeClassifier
+
+haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
 cv.destroyAllWindows()
 cv.waitKey(60)
