@@ -1,8 +1,8 @@
 # Proctoring System
-This is my final year Project which is based on IOT 
+This is my final year Project Based on Machine Learning & AI
  
 ### Features
-- keylogging
-- under proctor surveillance through cam
-- face tracking
-- mouth tracking
+- Keylogging
+- Object Dectection
+- Face Tracking
+- Mouth Tracking
