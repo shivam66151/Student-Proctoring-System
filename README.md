@@ -4,4 +4,4 @@ This is my final year Project Based on Machine Learning & AI
 ### Features
 - Keylogging
 - Object Dectection
-- Face Detection
+- Face Verification
