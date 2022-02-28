@@ -1,5 +1,5 @@
 # Proctoring System
-This is my final year Project Based on Machine Learning & AI
+This is my final year Project Based on Opencv & AI
  
 ### Features
 - Keylogging
