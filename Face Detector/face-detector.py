@@ -4,6 +4,7 @@ import cv2
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 cap = cv2.VideoCapture(0)
+#cap = cv2.VideoCapture('akshay.jpg')
 #cv2.namedWindow('Remote', cv2.WINDOW_AUTOSIZE)
 while True:
     _, img = cap.read()
