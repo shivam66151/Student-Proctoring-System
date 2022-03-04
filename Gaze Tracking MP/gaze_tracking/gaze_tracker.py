@@ -27,8 +27,10 @@ RIGHT_EYE=[ 33, 7, 163, 144, 145, 153, 154, 155, 133, 173, 157, 158, 159, 160, 1
 RIGHT_EYEBROW=[ 70, 63, 105, 66, 107, 55, 65, 52, 53, 46 ]
 
 map_face_mesh = mp.solutions.face_mesh
+
 # camera object 
 camera = cv.VideoCapture(0)
+
 # landmark detection function 
 def landmarksDetection(img, results, draw=False):
     img_height, img_width= img.shape[:2]
