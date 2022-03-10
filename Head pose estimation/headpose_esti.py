@@ -129,7 +129,7 @@ while cap.isOpened():
 			 	landmark_drawing_spec = drawing_spec,
 			 	connection_drawing_spec = drawing_spec)
 
-	cv2.imshow('Gaze Tracking', image)
+	cv2.imshow('Head Tracking', image)
 
 
 	if cv2.waitKey(5) & 0xFF == 27:
