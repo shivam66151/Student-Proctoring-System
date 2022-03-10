@@ -1,4 +1,3 @@
-
 import cv2 as cv 
 import numpy as np
 
@@ -17,7 +16,6 @@ PURPLE = (128,0,128)
 ORANGE = (0,165,255)
 PINK = (147,20,255)
 points_list =[(200, 300), (150, 150), (400, 200)]
-
 def drawColor(img, colors):
     x, y = 0,10
     w, h = 20, 30
@@ -29,7 +27,7 @@ def drawColor(img, colors):
         cv.rectangle(img, (x, y ), (x+w, y+h), color, -1)
     
 def colorBackgroundText(img, text, font, fontScale, textPos, textThickness=1,textColor=(0,255,0), bgColor=(0,0,0), pad_x=3, pad_y=3):
-
+  
     (t_w, t_h), _= cv.getTextSize(text, font, fontScale, textThickness) # getting the text size
     x, y = textPos
     cv.rectangle(img, (x-pad_x, y+ pad_y), (x+t_w+pad_x, y-t_h-pad_y), bgColor,-1) # draw rectangle 
@@ -38,7 +36,7 @@ def colorBackgroundText(img, text, font, fontScale, textPos, textThickness=1,tex
     return img
 
 def textWithBackground(img, text, font, fontScale, textPos, textThickness=1,textColor=(0,255,0), bgColor=(0,0,0), pad_x=3, pad_y=3, bgOpacity=0.5):
- 
+  
     (t_w, t_h), _= cv.getTextSize(text, font, fontScale, textThickness) # getting the text size
     x, y = textPos
     overlay = img.copy() # coping the image
@@ -51,7 +49,6 @@ def textWithBackground(img, text, font, fontScale, textPos, textThickness=1,text
 
 
 def textBlurBackground(img, text, font, fontScale, textPos, textThickness=1,textColor=(0,255,0),kneral=(33,33) , pad_x=3, pad_y=3):
-
     
     (t_w, t_h), _= cv.getTextSize(text, font, fontScale, textThickness) # getting the text size
     x, y = textPos
@@ -64,7 +61,7 @@ def textBlurBackground(img, text, font, fontScale, textPos, textThickness=1,text
     return img
 
 def fillPolyTrans(img, points, color, opacity):
-  
+   
     list_to_np_array = np.array(points, dtype=np.int32)
     overlay = img.copy()  # coping the image
     cv.fillPoly(overlay,[list_to_np_array], color )
@@ -74,9 +71,13 @@ def fillPolyTrans(img, points, color, opacity):
     cv.polylines(img, [list_to_np_array], True, color,1, cv.LINE_AA)
     return img
 
+# def pollyLines(img, points, color):
+#     list_to_np_array = np.array(points, dtype=np.int32)
+#     cv.polylines(img, [list_to_np_array], True, color,1, cv.LINE_AA)
+#     return img
 
 def rectTrans(img, pt1, pt2, color, thickness, opacity):
-  
+   
     overlay = img.copy()
     cv.rectangle(overlay, pt1, pt2, color, thickness)
     new_img = cv.addWeighted(overlay, opacity, img, 1 - opacity, 0) # overlaying the rectangle on the image.
