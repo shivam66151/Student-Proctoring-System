@@ -15,7 +15,7 @@ def take_screenshot():
     screenshot = pyautogui.screenshot()
     # if take_screenshot() is not None:
     #     count += 1
-    save_path = 'C:/Users/sharm/OneDrive/Desktop/Student Proctoring System/mouse position/'
+    save_path = 'C:/Users/Shivam Sharma/Proctoring-Sys/mouse position/screenshots/'
     screenshot.save(save_path + "_screenshot.png")
 
 
