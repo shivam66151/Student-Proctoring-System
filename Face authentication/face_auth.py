@@ -69,3 +69,41 @@ while True:
 
     # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
     rgb_small_frame = small_frame[:, :, ::-1]
+
+
+    # Only process every other frame of video to save time
+    if process_this_frame:
+        # Find all the faces and face encodings in the current frame of video
+        face_locations = face_recognition.face_locations(rgb_small_frame)
+        face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
+
+        face_names = []
+        for face_encoding in face_encodings:
+            # See if the face is a match for the known face(s)
+            matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
+            name = "Unknown"
+
+             # Or instead, use the known face with the smallest distance to the new face
+            face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
+            best_match_index = np.argmin(face_distances)
+            if matches[best_match_index]:
+                name = known_face_names[best_match_index]
+
+            face_names.append(remove(name))
+
+            font = cv2.FONT_HERSHEY_DUPLEX
+            if len(face_names) > 1:
+              cv2.putText(frame, "More than 1 Faces Detected", (20 , 440), font, 1.0, (255, 255, 255), 1)
+            elif len(face_names) == 1 and face_names[0] == "Unknown":
+              cv2.putText(frame, "Unknown", (20,440), font, 1.0, (255, 255, 255), 1)
+              rest_count = rest_count + 1
+            elif len(face_names) == 1 and face_names[0] == username:
+              cv2.putText(frame, "Success", (20 , 440), font, 1.0, (255, 255, 255), 1)
+              count = count + 1
+
+            if (count/rest_count) > 5 :
+             print("Sucessfull Verification")
+             sys.exit()
+
+            
+
