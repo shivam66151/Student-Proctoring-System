@@ -6,7 +6,7 @@ COLORS = [(0, 255, 0), (0, 0, 255), (255, 0, 0),
           (255, 255, 0), (255, 0, 255), (0, 255, 255)]
 
 class_name = []
-with open('classes.txt', 'r') as f:
+with open('coco.txt', 'r') as f:
     class_name = [cname.strip() for cname in f.readlines()]
 # print(class_name)
 net = cv.dnn.readNet('yolov4-tiny.weights', 'yolov4-tiny.cfg')
