@@ -5,6 +5,14 @@ import utils, math
 import numpy as np
 import pygame 
 from pygame import mixer 
+import cloudinary
+import cloudinary.uploader
+
+cloudinary.config( 
+  cloud_name = "proctorsam", 
+  api_key = "222581186617514", 
+  api_secret = "XxNRRZC19qxWHpwT1yRUBIX1cvA" 
+)
 
 # variables 
 frame_counter =0
@@ -32,6 +40,7 @@ FACE_OVAL=[ 10, 338, 297, 332, 284, 251, 389, 356, 454, 323, 361, 288, 397, 365,
 LIPS=[ 61, 146, 91, 181, 84, 17, 314, 405, 321, 375,291, 308, 324, 318, 402, 317, 14, 87, 178, 88, 95,185, 40, 39, 37,0 ,267 ,269 ,270 ,409, 415, 310, 311, 312, 13, 82, 81, 42, 183, 78 ]
 LOWER_LIPS =[61, 146, 91, 181, 84, 17, 314, 405, 321, 375, 291, 308, 324, 318, 402, 317, 14, 87, 178, 88, 95]
 UPPER_LIPS=[ 185, 40, 39, 37,0 ,267 ,269 ,270 ,409, 415, 310, 311, 312, 13, 82, 81, 42, 183, 78] 
+
 # Left eyes indices 
 LEFT_EYE =[ 362, 382, 381, 380, 374, 373, 390, 249, 263, 466, 388, 387, 386, 385,384, 398 ]
 LEFT_EYEBROW =[ 336, 296, 334, 293, 300, 276, 283, 282, 295, 285 ]
@@ -54,8 +63,8 @@ print(img_hieght, img_width)
 # video Recording setup 
 fourcc = cv.VideoWriter_fourcc(*'XVID')
 out = cv.VideoWriter('output21.mp4', fourcc, 30.0, (img_width, img_hieght))
-# landmark detection function 
 
+# landmark detection function 
 def landmarksDetection(img, results, draw=False):
     img_height, img_width= img.shape[:2]
     # list[(x,y), (x,y)....]
@@ -82,9 +91,6 @@ def blinkRatio(img, landmarks, right_indices, left_indices):
     # vertical line 
     rv_top = landmarks[right_indices[12]]
     rv_bottom = landmarks[right_indices[4]]
-    # draw lines on right eyes 
-    # cv.line(img, rh_right, rh_left, utils.GREEN, 2)
-    # cv.line(img, rv_top, rv_bottom, utils.WHITE, 2)
 
     # LEFT_EYE 
     # horizontal line 
@@ -107,7 +113,7 @@ def blinkRatio(img, landmarks, right_indices, left_indices):
     ratio = (reRatio+leRatio)/2
     return ratio 
 
-# Eyes Extrctor function,
+# Eyes Extractor function,
 def eyesExtractor(img, right_eye_coords, left_eye_coords):
     # converting color image to  scale image 
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
@@ -182,6 +188,7 @@ def pixelCounter(first_piece, second_piece, third_piece):
     right_part = np.sum(first_piece==0)
     center_part = np.sum(second_piece==0)
     left_part = np.sum(third_piece==0)
+
     # creating list of these values
     eye_parts = [right_part, center_part, left_part]
 
