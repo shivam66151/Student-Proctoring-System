@@ -67,8 +67,16 @@ print(img_hieght, img_width)
 
 # video Recording setup 
 fourcc = cv.VideoWriter_fourcc(*'XVID')
-out = cv.VideoWriter('output21.mp4', fourcc, 30.0, (img_width, img_hieght))
+out = cv.VideoWriter('output21', fourcc, 30.0, (img_width, img_hieght))
 
+cloudinary.uploader.upload_large('output21', 
+  resource_type = "video",
+  public_id = "Proctorsystem/gazetracking",
+  chunk_size = 6000000,
+  eager = [
+    { "width": 300, "height": 300, "crop": "pad", "audio_codec": "none"},
+    { "width": 160, "height": 100, "crop": "crop", "gravity": "south",
+        "audio_codec": "none"}])
 
 # landmark detection function 
 def landmarksDetection(img, results, draw=False):
@@ -141,7 +149,7 @@ def eyesExtractor(img, right_eye_coords, left_eye_coords):
     eyes = cv.bitwise_and(gray, gray, mask=mask)
     # change black color to gray other than eys 
     # cv.imshow('eyes draw', eyes)
-    eyes[mask==0]=155
+    eyes[mask==0] = 155
     
     # getting minium and maximum x and y  for right and left eyes 
     # For Right Eye 
@@ -166,7 +174,7 @@ def eyesExtractor(img, right_eye_coords, left_eye_coords):
 # Eyes Postion Estimator 
 def positionEstimator(cropped_eye):
     # getting height and width of eye 
-    h, w =cropped_eye.shape
+    h, w = cropped_eye.shape
     
     # remove the noise from images
     gaussain_blur = cv.GaussianBlur(cropped_eye, (9,9),0)
