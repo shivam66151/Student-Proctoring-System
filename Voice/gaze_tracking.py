@@ -1,3 +1,4 @@
+# Required modules and packages
 import cv2 as cv
 import mediapipe as mp
 import time
@@ -8,6 +9,8 @@ from pygame import mixer
 import cloudinary
 import cloudinary.uploader
 
+
+# configuring cloudinary cloud 
 cloudinary.config( 
   cloud_name = "proctorsam", 
   api_key = "222581186617514", 
@@ -22,18 +25,20 @@ start_voice= False
 counter_right=0
 counter_left =0
 counter_center =0 
+
 # constants
 CLOSED_EYES_FRAME =3
-FONTS =cv.FONT_HERSHEY_COMPLEX
+FONTS = cv.FONT_HERSHEY_COMPLEX
 
 # initialize mixer 
 mixer.init()
+
 # loading in the voices/sounds 
 # voice_left = mixer.Sound('Voice/left.wav')
 # voice_right = mixer.Sound('Voice/Right.wav')
 voice_center = mixer.Sound('center.wav')
 
-# face bounder indices 
+# face boundaries indices 
 FACE_OVAL=[ 10, 338, 297, 332, 284, 251, 389, 356, 454, 323, 361, 288, 397, 365, 379, 378, 400, 377, 152, 148, 176, 149, 150, 136, 172, 58, 132, 93, 234, 127, 162, 21, 54, 103,67, 109]
 
 # lips indices for Landmarks
@@ -63,6 +68,7 @@ print(img_hieght, img_width)
 # video Recording setup 
 fourcc = cv.VideoWriter_fourcc(*'XVID')
 out = cv.VideoWriter('output21.mp4', fourcc, 30.0, (img_width, img_hieght))
+
 
 # landmark detection function 
 def landmarksDetection(img, results, draw=False):
