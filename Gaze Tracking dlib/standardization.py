@@ -11,9 +11,11 @@ class Standardization(object):
         self.thresholds_left = []
         self.thresholds_right = []
 
+
     def is_complete(self):
         # REturns true if the standardization is completed
         return len(self.thresholds_left) >= self.nb_frames and len(self.thresholds_right) >= self.nb_frames
+
 
     def threshold(self,side):
 
@@ -21,6 +23,7 @@ class Standardization(object):
             return int(sum(self.thresholds_left) / len(self.thresholds_left))
         elif side == 1:
             return int(sum(self.thresholds_right) / len(self.thresholds_right))
+            
 
     @staticmethod
     def iris_size(frame):
@@ -33,7 +36,7 @@ class Standardization(object):
 
     @staticmethod
     def find_best_threshold(eye_frame):
-        
+
          average_iris_size = 0.48
          trials = {}
          
