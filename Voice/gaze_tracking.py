@@ -6,16 +6,15 @@ import utils, math
 import numpy as np
 import pygame 
 from pygame import mixer 
-import cloudinary
-import cloudinary.uploader
+
 
 
 # configuring cloudinary cloud 
-cloudinary.config( 
-  cloud_name = "proctorsam", 
-  api_key = "222581186617514", 
-  api_secret = "XxNRRZC19qxWHpwT1yRUBIX1cvA" 
-)
+# cloudinary.config( 
+#   cloud_name = "proctorsam", 
+#   api_key = "222581186617514", 
+#   api_secret = "XxNRRZC19qxWHpwT1yRUBIX1cvA" 
+# )
 
 # variables 
 frame_counter =0
@@ -69,14 +68,15 @@ print(img_hieght, img_width)
 fourcc = cv.VideoWriter_fourcc(*'XVID')
 out = cv.VideoWriter('output21', fourcc, 30.0, (img_width, img_hieght))
 
-cloudinary.uploader.upload_large('output21', 
-  resource_type = "video",
-  public_id = "Proctorsystem/gazetracking",
-  chunk_size = 6000000,
-  eager = [
-    { "width": 300, "height": 300, "crop": "pad", "audio_codec": "none"},
-    { "width": 160, "height": 100, "crop": "crop", "gravity": "south",
-        "audio_codec": "none"}])
+
+# cloudinary.uploader.upload_large('output21', 
+#   resource_type = "video",
+#   public_id = "Proctorsystem/gazetracking",
+#   chunk_size = 6000000,
+#   eager = [
+#     { "width": 300, "height": 300, "crop": "pad", "audio_codec": "none"},
+#     { "width": 160, "height": 100, "crop": "crop", "gravity": "south",
+#         "audio_codec": "none"}])
 
 # landmark detection function 
 def landmarksDetection(img, results, draw=False):

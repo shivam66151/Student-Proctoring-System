@@ -5,20 +5,6 @@ import joblib
 from face_detector import get_face_detector, find_faces
 
 def calc_hist(img):
-    """
-    To calculate histogram of an RGB image
-
-    Parameters
-    ----------
-    img : Array of uint8
-        Image whose histogram is to be calculated
-
-    Returns
-    -------
-    histogram : np.array
-        The required histogram
-
-    """
     histogram = [0] * 3
     for j in range(3):
         histr = cv2.calcHist([img], [j], None, [256], [0, 256])
@@ -27,7 +13,7 @@ def calc_hist(img):
     return np.array(histogram)
 
 face_model = get_face_detector()
-clf = joblib.load('models/face_spoofing.pkl')
+clf = joblib.load('face_spoofing.pkl')
 cap = cv2.VideoCapture(0)
 
 sample_number = 1
