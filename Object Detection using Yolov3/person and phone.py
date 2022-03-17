@@ -35,6 +35,7 @@ while True:
         cv.putText(frame, label, (box[0], box[1]-10),
                    cv.FONT_HERSHEY_COMPLEX, 1, color, 2)
 
+
     # endingTime = time.time() - starting_time
     # fps = frame_counter/endingTime
     # print(fps)
