@@ -5,26 +5,7 @@ from face_landmarks import get_landmark_model, detect_marks
 
 
 def eye_on_mask(mask, side, shape):
-    """
-    Create ROI on mask of the size of eyes and also find the extreme points of each eye
-
-    Parameters
-    ----------
-    mask : np.uint8
-        Blank mask to draw eyes on
-    side : list of int
-        the facial landmark numbers of eyes
-    shape : Array of uint32
-        Facial landmarks
-
-    Returns
-    -------
-    mask : np.uint8
-        Mask with region of interest drawn
-    [l, t, r, b] : list
-        left, top, right, and bottommost points of ROI
-
-    """
+  
     points = [shape[i] for i in side]
     points = np.array(points, dtype=np.int32)
     mask = cv2.fillConvexPoly(mask, points, 255)
@@ -49,32 +30,7 @@ def find_eyeball_position(end_points, cx, cy):
 
     
 def contouring(thresh, mid, img, end_points, right=False):
-    """
-    Find the largest contour on an image divided by a midpoint and subsequently the eye position
-
-    Parameters
-    ----------
-    thresh : Array of uint8
-        Thresholded image of one side containing the eyeball
-    mid : int
-        The mid point between the eyes
-    img : Array of uint8
-        Original Image
-    end_points : list
-        List containing the exteme points of eye
-    right : boolean, optional
-        Whether calculating for right eye or left eye. The default is False.
-
-    Returns
-    -------
-    pos: int
-        the position where eyeball is:
-            0 for normal
-            1 for left
-            2 for right
-            3 for up
-
-    """
+    
     cnts, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
     try:
         cnt = max(cnts, key = cv2.contourArea)
@@ -90,20 +46,7 @@ def contouring(thresh, mid, img, end_points, right=False):
         pass
     
 def process_thresh(thresh):
-    """
-    Preprocessing the thresholded image
-
-    Parameters
-    ----------
-    thresh : Array of uint8
-        Thresholded image to preprocess
-
-    Returns
-    -------
-    thresh : Array of uint8
-        Processed thresholded image
-
-    """
+    
     thresh = cv2.erode(thresh, None, iterations=2) 
     thresh = cv2.dilate(thresh, None, iterations=4) 
     thresh = cv2.medianBlur(thresh, 3) 
@@ -111,23 +54,7 @@ def process_thresh(thresh):
     return thresh
 
 def print_eye_pos(img, left, right):
-    """
-    Print the side where eye is looking and display on image
-
-    Parameters
-    ----------
-    img : Array of uint8
-        Image to display on
-    left : int
-        Position obtained of left eye.
-    right : int
-        Position obtained of right eye.
-
-    Returns
-    -------
-    None.
-
-    """
+    
     if left == right and left != 0:
         text = ''
         if left == 1:
@@ -139,6 +66,9 @@ def print_eye_pos(img, left, right):
         elif left == 3:
             print('Looking up')
             text = 'Looking up'
+        # else:
+        #     print('Looking Down')
+        #     text = 'Looking Down'
         font = cv2.FONT_HERSHEY_SIMPLEX 
         cv2.putText(img, text, (30, 30), font,  
                    1, (0, 255, 255), 2, cv2.LINE_AA) 
