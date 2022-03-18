@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
-from face_detector import get_face_detector, find_faces
-from face_landmarks import get_landmark_model, detect_marks
+from Experimenting.face_detector import get_face_detector, find_faces
+from Experimenting.face_landmarks import get_landmark_model, detect_marks
 
 
 def eye_on_mask(mask, side, shape):

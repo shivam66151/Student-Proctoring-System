@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import sklearn.externals 
 import joblib
-from face_detector import get_face_detector, find_faces
+from Experimenting.face_detector import get_face_detector, find_faces
 
 def calc_hist(img):
     histogram = [0] * 3

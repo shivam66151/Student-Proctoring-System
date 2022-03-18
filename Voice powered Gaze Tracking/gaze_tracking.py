@@ -8,16 +8,8 @@ import pygame
 from pygame import mixer 
 
 
-
-# configuring cloudinary cloud 
-# cloudinary.config( 
-#   cloud_name = "proctorsam", 
-#   api_key = "222581186617514", 
-#   api_secret = "XxNRRZC19qxWHpwT1yRUBIX1cvA" 
-# )
-
 # variables 
-frame_counter =0
+frame_counter =0 
 CEF_COUNTER =0
 TOTAL_BLINKS =0
 start_voice= False
@@ -32,9 +24,6 @@ FONTS = cv.FONT_HERSHEY_COMPLEX
 # initialize mixer 
 mixer.init()
 
-# loading in the voices/sounds 
-# voice_left = mixer.Sound('Voice/left.wav')
-# voice_right = mixer.Sound('Voice/Right.wav')
 voice_center = mixer.Sound('center.wav')
 
 # face boundaries indices 
@@ -66,17 +55,8 @@ print(img_hieght, img_width)
 
 # video Recording setup 
 fourcc = cv.VideoWriter_fourcc(*'XVID')
-out = cv.VideoWriter('output21', fourcc, 30.0, (img_width, img_hieght))
+out = cv.VideoWriter('outputgaze.mp4', fourcc, 30.0, (img_width, img_hieght))
 
-
-# cloudinary.uploader.upload_large('output21', 
-#   resource_type = "video",
-#   public_id = "Proctorsystem/gazetracking",
-#   chunk_size = 6000000,
-#   eager = [
-#     { "width": 300, "height": 300, "crop": "pad", "audio_codec": "none"},
-#     { "width": 160, "height": 100, "crop": "crop", "gravity": "south",
-#         "audio_codec": "none"}])
 
 # landmark detection function 
 def landmarksDetection(img, results, draw=False):
@@ -299,6 +279,7 @@ with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confiden
         
 
         # frame =utils.textWithBackground(frame,f'FPS: {round(fps,1)}',FONTS, 1.0, (30, 50), bgOpacity=0.9, textThickness=2)
+
         # writing image for thumbnail drawing shape
         # cv.imwrite(f'img/frame_{frame_counter}.png', frame)
         # wirting the video for demo purpose 

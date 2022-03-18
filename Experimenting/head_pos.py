@@ -1,9 +1,8 @@
-
 import cv2
 import numpy as np
 import math
-from face_detector import get_face_detector, find_faces
-from face_landmarks import get_landmark_model, detect_marks
+from Experimenting.face_detector import get_face_detector, find_faces
+from Experimenting.face_landmarks import get_landmark_model, detect_marks
 
 def get_2d_points(img, rotation_vector, translation_vector, camera_matrix, val):
     """Return the 3D points present as 2D for making annotation box"""
