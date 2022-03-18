@@ -1,4 +1,3 @@
-
 import cv2
 import numpy as np
 import tensorflow as tf
@@ -53,7 +52,6 @@ def move_box(box, offset):
 
 def detect_marks(img, model, face):
  
-
     offset_y = int(abs((face[3] - face[1]) * 0.1))
     box_moved = move_box(face, [0, offset_y])
     facebox = get_square_box(box_moved)

@@ -1,3 +1,4 @@
+name: "GoogleNet"
 input: "data"
 input_shape {
   dim: 1
