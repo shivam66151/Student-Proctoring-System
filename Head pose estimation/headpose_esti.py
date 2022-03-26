@@ -125,12 +125,12 @@ while cap.isOpened():
 
 			# cv2.putText(image, f'FPS: {int(fps)}', (20,450), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
 
-			mp_drawing.draw_landmarks(
-				image = image,
-			 	landmark_list = face_landmarks,
-			 	connections = mp_face_mesh.FACEMESH_CONTOURS,
-			 	landmark_drawing_spec = drawing_spec,
-			 	connection_drawing_spec = drawing_spec)
+			# mp_drawing.draw_landmarks(
+			# 	image = image,
+			#  	landmark_list = face_landmarks,
+			#  	connections = mp_face_mesh.FACEMESH_CONTOURS,
+			#  	landmark_drawing_spec = drawing_spec,
+			#  	connection_drawing_spec = drawing_spec)
 
 	cv2.imshow('Head Tracking', image)
 

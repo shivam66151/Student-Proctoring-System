@@ -1,0 +1,10 @@
+"How many Keywords are there in C Programming language ?",
+"Which of the following functions takes A console Input in Python ?",
+"Which of the following is the capital of India ?",
+"Which of The Following is must to Execute a Python Code ?",
+"The Taj Mahal is located in  ?",
+"The append Method adds value to the list at the  ?",
+"Which of the following is not a costal city of india ?",
+"Which of The following is executed in browser(client side) ?",
+"Which of the following keyword is used to create a function in Python ?",
+"To Declare a Global variable in python we use the keyword ?"
