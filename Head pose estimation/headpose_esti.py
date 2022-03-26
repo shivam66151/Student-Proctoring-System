@@ -39,6 +39,7 @@ while cap.isOpened():
 	face_3d = []
 	face_2d = []
 
+
 	if results.multi_face_landmarks:
 		for face_landmarks in results.multi_face_landmarks:
 			for idx, lm in enumerate(face_landmarks.landmark):

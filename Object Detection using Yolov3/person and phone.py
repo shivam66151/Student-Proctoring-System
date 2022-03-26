@@ -20,8 +20,8 @@ model.setInputParams(size=(416, 416), scale=1/255, swapRB=True)
 
 
 cap = cv.VideoCapture(0)
-# starting_time = time.time()
-# frame_counter = 0
+starting_time = time.time()
+frame_counter = 0
 while True:
     ret, frame = cap.read()
     # frame_counter += 1
@@ -36,11 +36,11 @@ while True:
                    cv.FONT_HERSHEY_COMPLEX, 1, color, 2)
 
 
-    # endingTime = time.time() - starting_time
-    # fps = frame_counter/endingTime
-    # print(fps)
-    # cv.putText(frame, f'FPS: {fps}', (20, 50),
-    #            cv.FONT_HERSHEY_COMPLEX, 0.7, (0, 255, 0), 2)
+    endingTime = time.time() - starting_time
+    fps = frame_counter/endingTime
+    print(fps)
+    cv.putText(frame, f'FPS: {fps}', (20, 50),
+               cv.FONT_HERSHEY_COMPLEX, 0.7, (0, 255, 0), 2)
     cv.imshow('frame', frame)
     key = cv.waitKey(1)
     if key == ord('q'):
