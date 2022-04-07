@@ -24,7 +24,7 @@ starting_time = time.time()
 frame_counter = 0
 while True:
     ret, frame = cap.read()
-    # frame_counter += 1
+    frame_counter += 1
     if ret == False:
         break
     classes, scores, boxes = model.detect(frame, Conf_threshold, NMS_threshold)

@@ -39,6 +39,7 @@ while cap.isOpened():
 	face_3d = []
 	face_2d = []
 
+
 	if results.multi_face_landmarks:
 		for face_landmarks in results.multi_face_landmarks:
 			for idx, lm in enumerate(face_landmarks.landmark):
@@ -99,39 +100,8 @@ while cap.isOpened():
 			else:
 				text = "Looking Up"
 
-			# Display the nose direction
-			# nose_3d_projection, jacobian = cv2.projectPoints(nose_3d, rot_vec, trans_vec, cam_matrix, dist_matrix)
-			# (nose_3d_projection, jacobian) = cv2.projectPoints(np.array([(0.0, 0.0, 1000.0)]), rot_vec, trans_vec, cam_matrix, dist_matrix)
-
-			# p1 = (int(nose_2d[0]), int(nose_2d[1] - x * 10))
-			# p2 = (int(nose_2d[0] + y * 10) , int(nose_2d[1] - x * 10))
-
-			
-
-			# cv2.line(image, p1, p2, (255, 0, 0), 3)
-
 			# Add the text on the image
 			cv2.putText(image, text, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 2)
-			# cv2.putText(image, "x: " + str(np.round(x,2)), (500, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
-			# cv2.putText(image, "y: " + str(np.round(x,2)), (500, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
-			# cv2.putText(image, "z: " + str(np.round(x,2)), (500, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
-
-
-			# end = time.time()
-			# totalTime = end - dist_matrix
-
-			# fps = 1 / totalTime
-			# print("FPS: ", fps)
-
-			# cv2.putText(image, f'FPS: {int(fps)}', (20,450), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
-
-			mp_drawing.draw_landmarks(
-				image = image,
-			 	landmark_list = face_landmarks,
-			 	connections = mp_face_mesh.FACEMESH_CONTOURS,
-			 	landmark_drawing_spec = drawing_spec,
-			 	connection_drawing_spec = drawing_spec)
-
 	cv2.imshow('Head Tracking', image)
 
 

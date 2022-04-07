@@ -122,10 +122,6 @@ def selected():
         print("finally here")
         #root.destroy()
     
-
-
-
-
 def startquiz():
     global lblQuestion,r1,r2,r3,r4
     lblQuestion = Label(

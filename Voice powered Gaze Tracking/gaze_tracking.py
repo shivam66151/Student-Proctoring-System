@@ -151,7 +151,7 @@ def eyesExtractor(img, right_eye_coords, left_eye_coords):
     # returning the cropped eyes 
     return cropped_right, cropped_left
 
-# Eyes Postion Estimator 
+# Eyes Position Estimator 
 def positionEstimator(cropped_eye):
     # getting height and width of eye 
     h, w = cropped_eye.shape

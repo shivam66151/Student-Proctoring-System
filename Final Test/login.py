@@ -19,7 +19,7 @@ def remove(string):
     return re.sub(pattern, '', string)
 #---------------------------------------------------------------------------------------------------------------
 #first get the picture then save it in pic and set as background
-image = Image.open("yellowbg.jpg")
+image = Image.open('redbg.jpg')
 pic = ImageTk.PhotoImage(image)
 
 label0 = Label(image = pic)
@@ -53,24 +53,24 @@ def login():
 
 #----------------------------------------------------------------------------------------------------------------
 #first label
-label1 = Label(window, text = " Login System ", fg = "black", font = ("new times roman", 40, "bold"))
+label1 = Label(window, text = " Login System ", fg = "yellow", bg = "red", font = ("new times roman", 40, "bold"))
 label1.place(x = 200, y = 15)
 
-label2 = Label(window, text = "User Name :", font = ("arial", 16, "bold"))
+label2 = Label(window, text = "User Name :",fg="yellow", bg="red",font = ("arial", 16, "bold"))
 label2.place(x = 110, y = 150)
 
 userName = StringVar()
-textBox1 = Entry(window, textvar = userName, width = 30, font = ("arial", 16, "bold"))
+textBox1 = Entry(window, textvar = userName, width = 30,font = ("arial", 16, "bold"))
 textBox1.place(x = 290, y = 150)
 
-label3 = Label(window, text = "Password :", font = ("arial", 16, "bold"))
+label3 = Label(window, text = "Password :",fg="yellow", bg="red", font = ("arial", 16, "bold"))
 label3.place(x = 116, y = 250)
 
 password = StringVar()
 textBox2 = Entry(window, textvar = password, width = 30, font = ("arial", 16, "bold"),show='*')
 textBox2.place(x = 290, y = 250)
 
-button1 = Button(window, text = "   Login   ", fg = "black", bg = "white", relief = "raised", font = ("arial", 16, "bold"), command = login)
+button1 = Button(window, text = "   Login   ", fg = "yellow", bg = "red", relief = "raised", font = ("arial", 16, "bold"), command = login)
 button1.place(x = 335, y = 340)
 
 #display window
