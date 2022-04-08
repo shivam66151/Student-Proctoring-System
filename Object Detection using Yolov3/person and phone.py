@@ -7,11 +7,14 @@ NMS_threshold = 0.4
 COLORS = [(0, 255, 0), (0, 0, 255), (255, 0, 0),
           (255, 255, 0), (255, 0, 255), (0, 255, 255)]
 
+# Load names of classes
 class_name = []
 with open('coco.txt', 'r') as f:
     class_name = [cname.strip() for cname in f.readlines()]
-# print(class_name)
-net = cv.dnn.readNet('yolov4-tiny.weights', 'yolov4-tiny.cfg')
+    # print(class_name)
+
+# Give the configuration and weight files for the model and load the network
+net = cv.dnn.readNet('yolov4-tiny.weights', 'yolov4-tiny.cfg')  
 net.setPreferableBackend(cv.dnn.DNN_BACKEND_CUDA)
 net.setPreferableTarget(cv.dnn.DNN_TARGET_CUDA_FP16)
 
