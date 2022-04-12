@@ -9,7 +9,7 @@ from pygame import mixer
 
 
 # variables 
-frame_counter =0 
+frame_counter =0   
 CEF_COUNTER =0
 TOTAL_BLINKS =0
 start_voice= False

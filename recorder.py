@@ -88,7 +88,7 @@ if flag:
 from nltk.corpus import stopwords 
 from nltk.tokenize import word_tokenize 
 
-file = open("test.txt") ## Student speech file
+file = open("paper.txt") ## Student speech file
 data = file.read()
 file.close()
 stop_words = set(stopwords.words('english'))   

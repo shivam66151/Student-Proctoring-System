@@ -90,12 +90,12 @@ while cap.isOpened():
                 text = "Looking Left"
             elif y > 10:
                 text = "Looking Right"
-            elif x < -10:
+            elif x < -8:
                 text = "Looking Down"
             elif x > 8:
-                text = "Looking Straight"
-            else:
                 text = "Looking Up"
+            else:
+                text = "Looking Straight"
 
             # Display the nose direction
             nose_3d_projection, jacobian = cv2.projectPoints(nose_3d, rot_vec, trans_vec, cam_matrix, dist_matrix)
@@ -114,18 +114,6 @@ while cap.isOpened():
 
         end = time.time()
         totalTime = end - start
-
-        # fps = 1 / totalTime
-        # #print("FPS: ", fps)
-
-        # cv2.putText(image, f'FPS: {int(fps)}', (20,450), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
-
-        # mp_drawing.draw_landmarks(
-        #             image=image,
-        #             landmark_list=face_landmarks,
-        #             connections=mp_face_mesh.FACE_CONTOURS,
-        #             landmark_drawing_spec=drawing_spec,
-        #             connection_drawing_spec=drawing_spec)
 
 
     cv2.imshow('Head Pose Estimation', image)
