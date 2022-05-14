@@ -1,6 +1,6 @@
 # Proctoring System
 
-An AI Based Proctoring System Project to create an automated proctoring system where the user can be monitored automatically through the webcam and microphone.
+An ML Based Proctoring System Project to create an automated proctoring system where the examinee can be monitored automatically through the webcam and microphone.
 
 ## Prerequisites
 For Foresight 
